@@ -1,0 +1,43 @@
+[project]
+name = "clarity"
+authors = []
+description = ""
+telemetry = false
+requirements = []
+cache_dir = "/Users/yannisdecl/.clarinet/cache"
+[contracts.nft_contract]
+path = "contracts/nft_contract.clar"
+depends_on = ["sip009-nft-trait", "commission-trait"]
+
+[contracts.nft_contract-byzantion-commission]
+path = "contracts/nft_contract-byzantion-commission.clar"
+depends_on = ["commission-trait"]
+
+[contracts.nft_contract-gamma-commission]
+path = "contracts/nft_contract-gamma-commission.clar"
+depends_on = ["commission-trait"]
+
+[contracts.nft_contract-test-commission]
+path = "contracts/nft_contract-test-commission.clar"
+depends_on = ["commission-trait"]
+
+[contracts.commission-trait]
+path = "contracts/commission-trait.clar"
+depends_on = []
+
+[contracts.sip009-nft-trait]
+path = "contracts/sip009-nft-trait.clar"
+depends_on = []
+
+[repl]
+costs_version = 2
+parser_version = 2
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
